@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Amount of apps</string>
+    <string name="amount1">Amount_1</string>
+    <string name="amount2">Amount_2</string>
+    <string name="all_apps">Calculate all apps</string>
+    <string name="non_system_apps">Calculate non-system apps</string>
+</resources>
