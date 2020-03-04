@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="ru.mail.mymusic" platformBuildVersionCode="24" platformBuildVersionName="7.0">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="ru.mail.mymusic.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="ru.mail.permission.auth.READ"/>
+    <uses-permission android:name="ru.mail.my.permission.PREFS"/>
+    <uses-permission android:name="ru.mail.my.permission.AUTH"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <supports-screens android:requiresSmallestWidthDp="220"/>
+    <permission android:name="ru.mail.mymusic.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="ru.mail.mymusic.base.MusicApp" android:theme="@style/AppTheme.Light.Lightness">
+        <activity android:configChanges="keyboardHidden|screenSize" android:label="@string/app_name" android:name="ru.mail.mymusic.screen.StartupActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.NoActionBar" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/auth_register_title" android:name="ru.mail.mymusic.screen.auth.RegisterActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.settings.SettingsActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.collection.NuevoPlaylistActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.collection.phonemusic.PhoneMusicActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.collection.savedtracks.SavedTracksActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.collection.licensedtracks.LicensedTracksActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.collection.NewPlaylistActivity" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:name="ru.mail.mymusic.screen.music.MusicActivity" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="ru.mail.mymusic.screen.search.MyPlaylistsActivity"/>
+        <activity android:name="net.hockeyapp.android.FeedbackActivity"/>
+        <activity android:name="net.hockeyapp.android.PaintActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.startup.UrlOpenSplashActivity" android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="my.mail.ru" android:pathPrefix="/music/songs" android:scheme="http"/>
+                <data android:host="my.mail.ru" android:pathPrefix="/music/songs" android:scheme="https"/>
+                <data android:host="my.mail.ru" android:pathPrefix="/music/playlists" android:scheme="http"/>
+                <data android:host="my.mail.ru" android:pathPrefix="/music/playlists" android:scheme="https"/>
+                <data android:host="my.mail.ru" android:pathPrefix="/music/albums" android:scheme="http"/>
+                <data android:host="my.mail.ru" android:pathPrefix="/music/albums" android:scheme="https"/>
+                <data android:host="my.mail.ru" android:pathPrefix="/music/users/" android:scheme="http"/>
+                <data android:host="my.mail.ru" android:pathPrefix="/music/users/" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/auth_login_vk_title" android:name="ru.mail.mymusic.screen.auth.social.LoginVkActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/auth_login_ok_title" android:name="ru.mail.mymusic.screen.auth.social.OldLoginOkActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/auth_login_ok_title" android:name="ru.mail.mymusic.screen.auth.social.LoginOkActivity"/>
+        <activity android:label="@string/auth_login_vk_title" android:name="ru.mail.mymusic.screen.auth.social.NewVkActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.auth.ConfirmPermissionPopupActivity" android:theme="@style/AppTheme.PopupActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.followers.FollowingsActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="ru.mail.mymusic.screen.followers.FollowersActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="ru.mail.mymusic.screen.profile.FriendProfileActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.settings.AudioFXActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.search.MusicSearchActivity" android:parentActivityName="ru.mail.mymusic.screen.music.MusicActivity" android:windowSoftInputMode="adjustPan|stateUnchanged">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".screen.music.MusicActivity"/>
+        </activity>
+        <activity android:name="ru.mail.mymusic.screen.search.SimpleTrackListActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.collection.BigImageActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.ringtone.RingtoneActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="ru.mail.android.mytarget.ads.MyTargetActivity"/>
+        <activity android:label="ServiceActivity" android:name="com.vk.sdk.VKServiceActivity" android:theme="@style/VK.Transparent"/>
+        <activity android:configChanges="orientation" android:launchMode="singleTask" android:name="ru.ok.android.sdk.OkAuthActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="ok1246625024" android:scheme="okauth"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="ru.mail.mymusic.screen.OfflineLimitPopupActivity" android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity android:name="ru.mail.mymusic.base.SimplePlaylistListActivity"/>
+        <activity android:name="ru.mail.mymusic.screen.NowResidentPopupActivity" android:theme="@style/Theme.AppCompat.Dialog"/>
+        <service android:name="ru.mail.mymusic.service.player.PlayerService"/>
+        <service android:name="ru.mail.mymusic.service.stats.SendStatsService"/>
+        <receiver android:name="ru.mail.mymusic.service.player.MediaButtonEventReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="ru.mail.android.mytracker.campaign.CampaignReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="ru.mail.android.mytracker.campaign.CampaignService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.example.gcm"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="ru.mail.mymusic.service.pusher.PushTrackingReceiver"/>
+        <service android:exported="false" android:name="ru.mail.mymusic.gcm.MyGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="ru.mail.mymusic.gcm.MyInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:name="ru.mail.mymusic.gcm.GcmRegisterService"/>
+        <service android:name="ru.mail.mymusic.service.pusher.PusherService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="com.google.android.gms.appinvite.PreviewActivity" android:theme="@style/Theme.AppInvite.Preview">
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="ru.mail.mymusic"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"/>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="ru.mail.mymusic.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <service android:name="com.google.firebase.crash.internal.service.FirebaseCrashReceiverService" android:process=":background_crash"/>
+        <service android:name="com.google.firebase.crash.internal.service.FirebaseCrashSenderService" android:process=":background_crash"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:exported="true" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.tagmanager.TagManagerService"/>
+        <activity android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity" android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tagmanager.c.ru.mail.mymusic"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
